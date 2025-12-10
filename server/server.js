@@ -20,7 +20,12 @@ const server = http.createServer(app);
 // Initialize socket.io server
 export const io = new Server(server, {
   cors: {
-    origin: ["https://trust-chat-mzansi.vercel.app", "https://chat-messenger-tu2j.onrender.com"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "https://trust-chat-mzansi.vercel.app",
+      "https://chat-messenger-tu2j.onrender.com"
+    ],
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -56,7 +61,12 @@ app.use(express.json({ limit: "4mb" }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: ["https://trust-chat-mzansi.vercel.app", "https://chat-messenger-tu2j.onrender.com"],
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "https://trust-chat-mzansi.vercel.app",
+      "https://chat-messenger-tu2j.onrender.com"
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "token"],
@@ -73,10 +83,10 @@ app.use("/api/groups", groupRoutes);
 // Connect to MongoDB
 await connectDB();
 
-if (process.env.NODE_ENV !== "production") {
-  const PORT = process.env.PORT || 5001;
-  server.listen(PORT, () => console.log("Server is running on PORT: " + PORT));
-}
+const PORT = process.env.PORT || 5001;
+server.listen(PORT, () => {
+  console.log("Server is running on PORT: " + PORT);
+});
 
 // Export server for Vercel
 export default server;

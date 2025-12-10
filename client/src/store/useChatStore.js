@@ -3,7 +3,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useAuthStore } from "./authStore";
 
-const API_URL = import.meta.env.MODE === "development" ? "http://localhost:5001" : "https://chat-messenger-tu2j.onrender.com";
+const API_URL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "https://chat-messenger-tu2j.onrender.com";
 
 export const useChatStore = create((set, get) => ({
     messages: [],

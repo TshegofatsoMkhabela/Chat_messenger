@@ -14,8 +14,8 @@ export const smtpClient = nodemailer.createTransport({
         pass: process.env.GMAIL_APP_PASSWORD,
     },
     connectionTimeout: 10000, // 10 seconds
-    logger: true, // Log to console
-    debug: true, // Internal info logs
+    logger: false, // Log to console
+    debug: false, // Internal info logs
 });
 
 // Optional: verify connection
