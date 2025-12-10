@@ -7,8 +7,8 @@ export const generateTokenAndSetCookie = (res, userId) => {
 
     res.cookie("token", token, {
         httpOnly: true, // Prevents XSS
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "strict", // Prevents csrf
+        secure: true, // Always true for cross-site
+        sameSite: "none", // Allows cross-site cookie
         maxAge: 7 * 24 * 60 * 1000, // 7 days
     });
 

@@ -20,7 +20,7 @@ const server = http.createServer(app);
 // Initialize socket.io server
 export const io = new Server(server, {
   cors: {
-    origin: "https://chat-messenger-tu2j.onrender.com",
+    origin: ["https://trust-chat-mzansi.vercel.app", "https://chat-messenger-tu2j.onrender.com"],
     methods: ["GET", "POST"],
     credentials: true,
   },
@@ -56,7 +56,7 @@ app.use(express.json({ limit: "4mb" }));
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "https://trust-chat-mzansi.vercel.app",
+    origin: ["https://trust-chat-mzansi.vercel.app", "https://chat-messenger-tu2j.onrender.com"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "token"],

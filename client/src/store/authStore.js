@@ -4,13 +4,13 @@ import { io } from "socket.io-client";
 
 const API_URL =
     import.meta.env.MODE === "development"
-        ? "http://localhost:5000/api/auth"
-        : "/api/auth";
+        ? "http://localhost:5001/api/auth"
+        : "https://chat-messenger-tu2j.onrender.com/api/auth";
 
 const SOCKET_URL =
     import.meta.env.MODE === "development"
-        ? "http://localhost:5000"
-        : "/";
+        ? "http://localhost:5001"
+        : "https://chat-messenger-tu2j.onrender.com";
 
 axios.defaults.withCredentials = true;
 
