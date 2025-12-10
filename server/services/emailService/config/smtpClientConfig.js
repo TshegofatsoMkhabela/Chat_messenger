@@ -6,14 +6,16 @@ dotenv.config();
 // Create a reusable SMTP client
 export const smtpClient = nodemailer.createTransport({
     host: "smtp.gmail.com",
-    port: 465,
-    secure: true, // true for 465, false for other ports
+    port: 587,
+    secure: false, // true for 465, false for other ports
     family: 4, // Force IPv4 to avoid IPv6 timeouts on Render
     auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_APP_PASSWORD,
     },
     connectionTimeout: 10000, // 10 seconds
+    logger: true, // Log to console
+    debug: true, // Internal info logs
 });
 
 // Optional: verify connection
